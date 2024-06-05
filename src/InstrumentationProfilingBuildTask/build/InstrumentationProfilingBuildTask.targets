@@ -1,0 +1,11 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+    <UsingTask TaskName="InstrumentationProfilingBuildTask.InstrumentAssemblyTask" AssemblyFile="$(DeepProfilerBuildTaskPath)/InstrumentationProfilingBuildTask.dll"/>
+
+    <Target Name="InstrumentAssembly"
+            AfterTargets="CoreCompile"
+            BeforeTargets="CopyFilesToOutputDirectory"
+            Condition="'@(ProfileThisAssembly)' != ''">
+        <InstrumentAssemblyTask AssemblyPath="@(IntermediateAssembly)" MinimumMethodSize="%(ProfileThisAssembly.MinimumMethodSize)" />
+    </Target>
+</Project>

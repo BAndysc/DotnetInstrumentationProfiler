@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <!-- Folder containing InstrumentationProfilingBuildTask.dll -->
+        <!-- Check if the 'tasks' folder exists -->
+        <TasksFolderExists Condition="Exists('$(MSBuildThisFileDirectory)..\tasks\netstandard2.1')">true</TasksFolderExists>
+
+        <!-- Set the DeepProfilerBuildTaskPath based on the existence of the 'tasks' folder -->
+        <DeepProfilerBuildTaskPath Condition="'$(TasksFolderExists)' == 'true'">$(MSBuildThisFileDirectory)..\tasks\netstandard2.1</DeepProfilerBuildTaskPath>
+        <DeepProfilerBuildTaskPath Condition="'$(TasksFolderExists)' != 'true'">$(MSBuildThisFileDirectory)..\bin\release\netstandard2.1</DeepProfilerBuildTaskPath>
+    </PropertyGroup>
+</Project>

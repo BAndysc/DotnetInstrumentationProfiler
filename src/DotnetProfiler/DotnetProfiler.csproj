@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <Nullable>enable</Nullable>
+        <LangVersion>11</LangVersion>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Version>0.1.0-alpha0</Version>
+        <Title>Dotnet Profiler</Title>
+        <Authors>BAndysc</Authors>
+        <Description>A simple profiler capable of saving log in Perfetto Protobuf format.
+Note: this package doesn't measure anything on its own, you have to manually use Start/Stop methods to measure. Use this together with InstrumentationProfilingBuildTask to measure current assembly.</Description>
+        <RepositoryUrl>https://github.com/BAndysc/DotnetInstrumentationProfiler</RepositoryUrl>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="System.Memory" Version="4.5.5" />
+      <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.0.0" />
+    </ItemGroup>
+</Project>

@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\src\DotnetProfiler\DotnetProfiler.csproj" />
+      <ProjectReference Include="..\..\src\InstrumentationProfilingBuildTask\InstrumentationProfilingBuildTask.csproj" />
+    </ItemGroup>
+
+    <Import Project="..\..\src\InstrumentationProfilingBuildTask\build\InstrumentationProfilingBuildTask.props" />
+    <Import Project="..\..\src\InstrumentationProfilingBuildTask\build\InstrumentationProfilingBuildTask.targets" />
+ 
+   <ItemGroup>
+        <ProfileThisAssembly Include="PROFILED DLL" MinimumMethodSize="15" />
+    </ItemGroup>
+</Project>
