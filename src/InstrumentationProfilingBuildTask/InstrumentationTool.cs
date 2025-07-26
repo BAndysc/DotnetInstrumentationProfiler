@@ -101,6 +101,7 @@ internal class InstrumentationTool
             for (int i = 0; i < methodDef.Body.Instructions.Count; ++i)
             {
                 if (methodDef.Body.Instructions[i].IsConditionalBranch() ||
+                    methodDef.Body.Instructions[i].IsBr() ||
                     methodDef.Body.Instructions[i].IsLeave())
                 {
                     var oper = (Instruction)methodDef.Body.Instructions[i].Operand;
